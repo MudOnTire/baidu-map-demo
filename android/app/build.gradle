@@ -95,9 +95,10 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.mapdemo"
+        applicationId "com.rn"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -134,6 +135,22 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    signingConfigs {
+        debug {
+            storeFile file("lovebing-dev-key.keystore")
+            storePassword "lovebing"
+            keyAlias "lovebing-dev"
+            keyPassword "lovebing"
+        }
+        release {
+            storeFile file("lovebing-dev-key.keystore")
+            storePassword "lovebing"
+            keyAlias "lovebing-dev"
+            keyPassword "lovebing"
+        }
     }
 
 }
